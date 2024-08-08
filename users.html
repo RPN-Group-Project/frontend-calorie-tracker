@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie Calculator - Profile</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/navigation.js"></script>
+  <script src="js/components/headers.js"></script>
+
+</head>
+  <body
+    style="max-width:480px !important; min-height: 100vh; height: auto; margin-inline: auto;"
+    class="is-flex is-flex-direction-column">
+    <header class="p-2 is-flex is-flex-direction-column">
+      <div
+        class="is-flex is-flex-direction-row is-justify-content-space-between is-align-items-center">
+        <p class="is-size-5">Calorie Tracker</p>
+        <figure class="image is-48x48">
+          <img id="image-avatar" class="is-rounded" src="https://bulma.io/assets/images/placeholders/128x128.png" />
+        </figure>
+      </div>
+    </header>
+    <main class="is-flex is-flex-direction-column mx-auto mt-5">
+      <div class="box">
+        <table class="table is-hoverable is-striped is-fullwidth">
+          <thead style="position: sticky; top: 0; background-color: var(--bulma-scheme-main)">
+            <tr>
+              <th>No</th>
+              <th>Username</th>
+              <th>Role</th>
+              <th>
+                <button class="button is-fullwidth" id="create-user-button">
+                  <div class="is-flex">
+                    <span class="icon has-text-success">
+                      <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-circle-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M9 12h6" /><path d="M12 9v6" /></svg>
+                    </span>
+                    <span>Create</span>
+                  </div>
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="table-user-body"></tbody>
+        </table>
+        <nav
+          class="pagination is-centered"
+          role="navigation"
+          aria-label="pagination"
+          id="table-user-footer"
+          style="position: sticky; bottom: 4em; background-color: var(--bulma-scheme-main)">
+          <ul class="pagination-list py-3" id="page-user-list">
+            <li><button id="page-user-start" class="pagination-link button is-loading"><</button></li>
+            <li><span class="pagination-ellipsis">&hellip;</span></li>
+            <li><button class="pagination-link button is-loading" id="page-user-prev">1</button></li>
+            <li><button class="pagination-link is-current button is-loading" id="page-user-current">2</button></li>
+            <li><button class="pagination-link button is-loading" id="page-user-next">3</button></li>
+            <li><span class="pagination-ellipsis">&hellip;</span></li>
+            <li><button id="page-user-end" class="pagination-link button is-loading">></button></li>
+          </ul>
+      </div>
+    </main>
+    <footer
+      style="position: sticky; bottom: 0; width: 100%; margin-top: auto;"
+      class="has-background-black-bis">
+      <nav class="oh-my-navbar">
+        <a id="menu-home" class="item current">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-home">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+          </svg>
+          <span>Home</span>
+        </a>
+        <a id="menu-search" class="item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" />
+          </svg>
+          <span>Search</span>
+        </a>
+        <a id="menu-user" class="item" style="display: none;">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-table0r icons-tabler-outline icon-tabler-settings">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+            <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          </svg>
+          <span>Users</span>
+        </a>
+        <a id="menu-profile" class="item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-user-circle">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+            <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+          </svg>
+          <span>Profile</span>
+        </a>
+      </nav>
+    </footer>
+    <div id="modal-user-create" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Create User</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <form id="form-user-create">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Name</label>
+              </div>
+              <div class="field-body">
+                <div class="field is-grouped">
+                  <p class="control is-expanded">
+                    <input type="text" placeholder="First Name" class="input" name="first_name" required> 
+                  </p>
+                  <p class="control is-expanded">
+                    <input type="text" placeholder="Second Name" class="input" name="last_name" required> 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Username</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input type="text" placeholder="e.g user_name" class="input" name="username" required>
+                    <span class="icon is-small is-left"
+                      <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="-9 -9 40 40" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                          <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                        </svg>
+                      </i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Phone number</label>
+              </div>
+              <div class="field-body">
+                <div class="field is-expanded">
+                  <div class="field has-addons">
+                    <p class="control">
+                      <a class="button is-static">
+                        +62
+                      </a>
+                    </p>
+                    <p class="control is-expanded">
+                      <input class="input" type="tel" placeholder="e.g 825xxxxxx" name="phone" required>
+                    </p>
+                  </div>
+                  <p class="help">Do not enter the first zero</p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Email</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input type="email" placeholder="e.g. email@example.com" class="input" name="email" required>
+                    <span class="icon is-small is-left"
+                      <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="-9 -9 40 40" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" />
+                          <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" />
+                        </svg>
+                      </i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Password</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input type="password" placeholder="secret" class="input" name="password" required>
+                    <span class="icon is-small is-left"
+                      <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="-9 -9 40 40" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0z" />
+                          <path d="M15 9h.01" />
+                        </svg>
+                      </i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label"></div>
+              <div class="field-body">
+                <div class="field is-narrow">
+                  <div class="control">
+                    <label for="#" class="checkbox">
+                      <input type="checkbox" name="admin" value="true">
+                      Create user as admin ?
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label"></div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control is-expanded">
+                    <button class="button is-success">Create</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+    <div id="modal-user-read"></div>
+    <div id="modal-user-update" class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Update User</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <form id="form-user-update">
+            <input type="hidden" name="id">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Name</label>
+              </div>
+              <div class="field-body">
+                <div class="field is-grouped">
+                  <p class="control is-expanded">
+                    <input type="text" placeholder="First Name" class="input" name="first_name" required> 
+                  </p>
+                  <p class="control is-expanded">
+                    <input type="text" placeholder="Second Name" class="input" name="last_name" required> 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Username</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input type="text" placeholder="e.g user_name" class="input" name="username" required>
+                    <span class="icon is-small is-left"
+                      <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="-9 -9 40 40" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                          <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                        </svg>
+                      </i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Phone number</label>
+              </div>
+              <div class="field-body">
+                <div class="field is-expanded">
+                  <div class="field has-addons">
+                    <p class="control">
+                      <a class="button is-static">
+                        +62
+                      </a>
+                    </p>
+                    <p class="control is-expanded">
+                      <input class="input" type="tel" placeholder="e.g 825xxxxxx" name="phone" required>
+                    </p>
+                  </div>
+                  <p class="help">Do not enter the first zero</p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Email</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input type="email" placeholder="e.g. email@example.com" class="input" name="email" required>
+                    <span class="icon is-small is-left"
+                      <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="-9 -9 40 40" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" />
+                          <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" />
+                        </svg>
+                      </i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Password</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input type="password" placeholder="secret" class="input" name="password">
+                    <span class="icon is-small is-left"
+                      <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="-9 -9 40 40" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0z" />
+                          <path d="M15 9h.01" />
+                        </svg>
+                      </i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label"></div>
+              <div class="field-body">
+                <div class="field is-narrow">
+                  <div class="control">
+                    <label for="#" class="checkbox">
+                      <input type="checkbox" name="admin" value="true">
+                      is user an admin ?
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label"></div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control is-expanded">
+                    <button class="button is-success">update</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+    <div id="modal-container"></div>
+    <style>
+      .crud-button {
+        cursor: pointer;
+      }
+    </style>
+  </body>
+</html>

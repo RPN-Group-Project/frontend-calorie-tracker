@@ -1,0 +1,95 @@
+@import url('https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: solid 1px #00bb9f;
+  background: #01e9c6;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #01e9c6;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
+}
+
+@keyframes slideUp {
+  0% {
+    top: 0em;
+  }
+  100% {
+    top: -1em;
+  }
+}
+
+.oh-my-navbar {
+  background-color: var(--bulma-scheme-main) !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  padding: 0.5em;
+  position: relative;
+  a.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--bulma-text) !important;
+  }
+
+  a.item.current {
+    color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l)) !important;
+  }
+}
+
+div #content-accordion {
+  display: none;
+}
+.d-none {
+  display: none;
+}
+
+.hover:hover {
+  border-bottom: 1px solid white;
+}
+
+.hover {
+  padding-bottom: 10px;
+  border-bottom: 1px solid white;
+  margin-bottom: 10px;
+}
+
+.max-w-screen-sm {
+  max-width: 480px !important;
+}
+
+.elipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.highlight {
+  background-color: var(--hl-gray-09);
+}
+
+#accordion {
+  box-shadow: unset;
+}
+.shadow-none {
+  box-shadow: unset;
+}

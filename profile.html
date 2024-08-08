@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calorie Calculator - Profile</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script src="js/components/headers.js"></script>
+    <script type="module" src="js/navigation.js"></script>
+  </head>
+  <body
+    style="max-width:480px !important; min-height: 100vh; height: auto; margin-inline: auto;"
+    class="is-flex is-flex-direction-column">
+    <header class="p-2 is-flex is-flex-direction-column">
+      <div
+        class="is-flex is-flex-direction-row is-justify-content-space-between is-align-items-center">
+        <p class="is-size-5">Calorie Tracker</p>
+        <figure class="image is-48x48">
+          <img
+            id="image-avatar"
+            class="is-rounded"
+            src="https://bulma.io/assets/images/placeholders/128x128.png" />
+        </figure>
+      </div>
+    </header>
+    <main class="p-5 is-flex is-flex-direction-column" style="min-height: inherit; height: auto;">
+      <div class="columns is-mobile">
+        <div class="column is-narrow">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-128x128">
+                <img
+                  class="image-avatar"
+                  src="https://bulma.io/assets/images/placeholders/128x128.png" />
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <h3 class="title is-skeleton" id="profile-username">Username</h3>
+            <p id="profile-name" class="is-skeleton"><strong>Firstname</strong> Secondname</p>
+            <div id="profile-roles" class="is-flex is-flex-direction-row is-skeleton" style="gap: 0.95rem">
+            </div>
+          </div>
+        </div>
+        <div class="column is-narrow">
+          <div class="columns is-multiline">
+            <div class="column is-full">
+              <button class="button" id="edit-profile">
+                <span class="icon is-small has-text-warning">
+                  <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1.5"  stroke-linecap="round"  stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /><path d="M13.5 6.5l4 4" /></svg>
+                </span>
+              </button>
+            </div>
+            <div class="column is-full">
+              <button class="button" id="logout">
+                <span class="icon is-small has-text-warning">
+                  <svg fill="#ff0000" height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" stroke="#ff0000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M366.473,172.549c-8.552-9.598-23.262-10.44-32.858-1.888c-9.595,8.552-10.44,23.263-1.887,32.858 c16.556,18.576,25.676,42.527,25.676,67.443c-0.002,55.913-45.49,101.402-101.404,101.402s-101.402-45.489-101.402-101.402 c0-24.913,9.118-48.863,25.678-67.443c8.552-9.595,7.705-24.308-1.89-32.86c-9.596-8.552-24.306-7.705-32.858,1.89 c-24.166,27.116-37.474,62.065-37.474,98.413C108.052,352.54,174.421,418.909,256,418.909s147.948-66.369,147.948-147.948 C403.948,234.611,390.639,199.661,366.473,172.549z"></path> </g> </g> <g> <g> <path d="M256,93.091c-12.853,0-23.273,10.42-23.273,23.273v99.739c0,12.853,10.42,23.273,23.273,23.273 c12.853,0,23.273-10.42,23.273-23.273v-99.739C279.273,103.511,268.853,93.091,256,93.091z"></path> </g> </g> <g> <g> <path d="M256,0C114.842,0,0,114.842,0,256s114.842,256,256,256c141.16,0,256-114.842,256-256S397.16,0,256,0z M256,465.455 c-115.493,0-209.455-93.961-209.455-209.455S140.507,46.545,256,46.545S465.455,140.507,465.455,256S371.493,465.455,256,465.455z "></path> </g> </g> </g></svg>            </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="icon-text has-text-info has-text-weight-bold mb-5">
+        <span class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-lemon">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M17.536 3.393c3.905 3.906 3.905 10.237 0 14.143c-3.906 3.905 -10.237 3.905 -14.143 0l14.143 -14.143" />
+            <path d="M5.868 15.06a6.5 6.5 0 0 0 9.193 -9.192" />
+            <path d="M10.464 10.464l4.597 4.597" />
+            <path d="M10.464 10.464v6.364" />
+            <path d="M10.464 10.464h6.364" />
+          </svg>
+        </span>
+        <span class="is-size-4">Favorite Meals</span>
+      </span>
+      <div class="columns is-multiline is-skeleton" id="fav-meals-list">
+        skekasldaslkjfsakjf
+        asfkasfasjfjaskfj
+        asdksajfjl
+      </div>
+    </main>
+    <footer
+      style="position: sticky; bottom: 0; width: 100%;"
+      class="has-background-black-bis">
+      <nav class="oh-my-navbar">
+        <a id="menu-home" class="item current">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-home">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+          </svg>
+          <span>Home</span>
+        </a>
+        <a id="menu-search" class="item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" />
+          </svg>
+          <span>Search</span>
+        </a>
+        <a id="menu-user" class="item" style="display: none;">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-table0r icons-tabler-outline icon-tabler-settings">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+            <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          </svg>
+          <span>Users</span>
+        </a>
+        <a id="menu-profile" class="item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-user-circle">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+            <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+          </svg>
+          <span>Profile</span>
+        </a>
+      </nav>
+    </footer>
+    <div id="modal-container"></div>
+    <div class="modal" id="modal-update-profile">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Update</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <form id="profile-update">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Name</label>
+              </div>
+              <div class="field-body">
+                <div class="field is-grouped">
+                  <p class="control is-expanded">
+                    <input type="text" placeholder="First Name" class="input" name="first_name"> 
+                  </p>
+                  <p class="control is-expanded">
+                    <input type="text" placeholder="Second Name" class="input" name="last_name"> 
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Username</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input type="text" placeholder="e.g user_name" class="input" name="username">
+                    <span class="icon is-small is-left"
+                      <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="-9 -9 40 40" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                          <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                        </svg>
+                      </i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Phone number</label>
+              </div>
+              <div class="field-body">
+                <div class="field is-expanded">
+                  <div class="field has-addons">
+                    <p class="control">
+                      <a class="button is-static">
+                        +62
+                      </a>
+                    </p>
+                    <p class="control is-expanded">
+                      <input class="input" type="tel" placeholder="e.g 825xxxxxx" name="phone">
+                    </p>
+                  </div>
+                  <p class="help">Do not enter the first zero</p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Email</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input type="email" placeholder="e.g. email@example.com" class="input" name="email" required>
+                    <span class="icon is-small is-left"
+                      <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="-9 -9 40 40" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M22 7.535v9.465a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-9.465l9.445 6.297l.116 .066a1 1 0 0 0 .878 0l.116 -.066l9.445 -6.297z" />
+                          <path d="M19 4c1.08 0 2.027 .57 2.555 1.427l-9.555 6.37l-9.555 -6.37a2.999 2.999 0 0 1 2.354 -1.42l.201 -.007h14z" />
+                        </svg>
+                      </i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label for="#" class="label field-label">Password</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded has-icons-left">
+                    <input type="password" placeholder="secret" class="input" name="password">
+                    <span class="icon is-small is-left"
+                      <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="-9 -9 40 40" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-mail">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0z" />
+                          <path d="M15 9h.01" />
+                        </svg>
+                      </i>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="field is-horizontal">
+              <div class="field-label"></div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control is-expanded">
+                    <button class="button is-success">update</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+    <style>
+      .show-pointer:hover {
+        cursor: pointer;
+      }
+    </style>
+  </body>
+</html>
